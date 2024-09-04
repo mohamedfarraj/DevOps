@@ -165,3 +165,56 @@ Manage Docker networks, such as creating, viewing, or removing a network.
   ```bash
   docker network connect [NETWORK_NAME] [CONTAINER_NAME]
   ```
+
+## 14. `docker volume`
+Docker volumes are used to persist data. Here are some important commands related to volumes:
+
+- **Create a volume**:
+  ```bash
+  docker volume create [VOLUME_NAME]
+  ```
+
+  Example:
+  ```bash
+  docker volume create myvolume
+  ```
+
+- **List all volumes**:
+  ```bash
+  docker volume ls
+  ```
+
+- **Inspect a volume**:
+  To view detailed information about a volume.
+  ```bash
+  docker volume inspect [VOLUME_NAME]
+  ```
+
+  Example:
+  ```bash
+  docker volume inspect myvolume
+  ```
+
+- **Remove a volume**:
+  To delete a volume.
+  ```bash
+  docker volume rm [VOLUME_NAME]
+  ```
+
+  Example:
+  ```bash
+  docker volume rm myvolume
+  ```
+
+- **Use a volume in a container**:
+  When running a container, you can use a volume by specifying the `-v` option.
+
+  ```bash
+  docker run -d -v [VOLUME_NAME]:[CONTAINER_PATH] --name [CONTAINER_NAME] [IMAGE]
+  ```
+
+  Example:
+  ```bash
+  docker run -d -v myvolume:/data --name mycontainer nginx
+  ```
+  This mounts the volume `myvolume` to the `/data` directory inside the container.
